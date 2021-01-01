@@ -1,0 +1,15 @@
+{
+  "name": "hexo-steam",
+  "version": "1.0.0",
+  "description": "show your steam store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "slyli",
+  "license": "ISC",
+  "dependencies": {
+    "fast-xml-parser": "^3.17.6",
+    "he": "^1.2.0"
+  }
+}
