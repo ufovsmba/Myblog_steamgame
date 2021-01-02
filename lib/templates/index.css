@@ -1,173 +1,247 @@
-#steam-item1 a,
-#steam-item1 a:hover {
-  text-decoration: none;
+#article-container img {
+    margin: 0;
+}
+#article-container a{
+    color: #ebebeb;
+    text-decoration: none;
+    cursor: pointer;
+}
+#article-container .button_controls a{
+    color: #66c0f4;
 }
 
-.steam-game-tabs {
-  margin-bottom: 15px;
-  margin-top: 15px;
+#article-container{
+    line-height: normal;
 }
 
-.steam-game-tab {
-  padding: 5px;
+.DefaultTheme{
+    --gradient-right: rgba(109, 38, 44, 0.301);
+    --gradient-left: rgba(50, 255, 193, 0.103);
+    --gradient-background: rgba(34, 35, 48, 0.93);
+    --gradient-background-right: rgba(109, 38, 44, 0);
+    --gradient-background-left: rgba(50, 255, 193, 0.103);
+    --color-showcase-header: rgba(43, 45, 68, 0.93);
+    --gradient-showcase-header-left: rgba(115, 173, 184, 0.247);
+    background-color: var(--gradient-background);
 }
 
-.steam-game-active {
-  background: #657b83;
-  color: #fff;
+
+.profile_header{
+    background: radial-gradient( farthest-side at bottom right, rgb(122 48 55 / 30%), transparent 500px ), 
+    radial-gradient( farthest-corner at bottom left, var(--gradient-left), transparent 600px );
+    background-color: var(--gradient-background);
+    background-position: center top;  
+    position: relative;
+    margin: 0 auto;
+    color: #fff;
+    min-height: 224px;
 }
 
-.steam-game-item {
-  padding-bottom: 10px;
-  position: relative;
-  clear: both;
-  min-height: 100px;
-  padding: 10px 0;
-  border-bottom: 1px #ddd solid;
+.profile_page{
+    background-color: var(--gradient-background);
+    background-image: url('https://steamcommunity-a.akamaihd.net/public/images/profile/2020/bg_dots.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: var(--gradient-background);
+    
+}
+.profile_content{
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 24px;
+    position: relative;
 }
 
-@media screen and (max-width: 600px) {
-  .steam-game-item {
+.player_avatar{
+    float: left;
+    position: relative;
+    margin-right: 18px;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+    width: 166px;
+    height: 166px;
+
+}
+.player_avatar img{
     width: 100%;
-  }
+    height: 100%;
+}
+.personal_name{
+    position: absolute;
+    left: 186px;
+    right: 268px;
+    white-space: nowrap;
+    font-size: 24px;
+    line-height: 40px;
+
+}
+.profile_header_badgeinfo{
+    float: right;
+    width: 150px;
 }
 
-.steam-game-picture {
-  position: absolute;
-  left: 0;
-  top: 10px;
-  width: 188px;
-  height: 99px;
+
+.profile_badge{
+    line-height: 40px;
+    margin-bottom: 13px;
+    font-size: 24px;
 }
 
-.steam-game-info {
-  height: 80px;
-  padding-left: 204px;
+.player_level{
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%;
+    border: solid white 2px;
+    height: 28px;
+    width: 28px;
+    line-height: 26px;
+    text-align: center;
+    cursor: default;
+    margin-top: 2px;
+    border-color: #9b9b9b;
 }
 
-.steam-game-meta {
-  font-size: 12px;
-  padding-right: 10px;
+
+.head_name_spcer{
+    font-size: 24px;
 }
 
-.steam-game-pagination {
-  margin-top: 15px;
-  text-align: center;
-  margin-bottom: 10px;
+.header_spacer{
+    height: 52px;
 }
 
-.steam-game-button {
-  padding: 5px;
-  display: inline-block;
+.head_profile_summary{
+    position: relative;
+
+}
+.profile_summary{
+    height: 76px;
+    color: #898989;
+    font-size: 14px;
+}
+.status_info_header
+{
+    position: absolute;
+    background: rgba( 0, 0, 0, 0.5 );
+    display: block;
+    padding: 8px;
+    margin: 4px 4px 4px 4px;
+    right: 20px;
+    bottom: 10px;
+}
+.status_info{
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    color: #898989;
+    padding-right: 20px;
 }
 
-.steam-game-button:hover {
-  background: #657b83;
-  color: #fff;
+.games_container{
+    background: radial-gradient( farthest-side at top right, var(--gradient-right), transparent 500px ), 
+    radial-gradient( farthest-corner at top left, var(--gradient-left), transparent 600px ), 
+    radial-gradient( farthest-corner at bottom right, var(--gradient-background-right), transparent 500px ), 
+    radial-gradient( farthest-corner at bottom left, var(--gradient-background-left), transparent 600px );
+    background-color: var(--gradient-background);
+    padding: 12px 12px 64px 12px;
+}
+.games_content{
+    backdrop-filter: blur(20px);
+    background-color: rgba( 0, 0, 0, 0.3 );
+    border-radius: 3px;
+    margin-bottom: 21px;
+    padding: 8px 10px;
+}
+.game_info_cap{
+    float: left;
+    max-width: 30%;
+    width: 184px;
+    margin-right: 8px;
+    position: relative;
+}
+.game_capsule{
+    width: 100%;
+    height: auto;
+    max-height: 69px;
+}
+.game_info_details{
+    font-size: 11px;
+    color: #7092a5;
+    position: relative;
+    padding: 5px 0px 0px 0px;
+}
+.game_name{
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 300;
+    padding: 0px;
+    margin: 0;
+}
+.hours_played
+{
+    padding: 0;
+    margin: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color: #56707f;
+    font-weight: normal;
+    font-size: 12px;
+    height: auto;
+}
+.button_controls{
+    padding-top: 4px;
+    font-size: 11px;
+    color: #7092a5;
+}
+.button_item
+{
+    display: inline-block;
+    background-color: rgba( 103, 193, 245, 0.2 );
+    padding: 3px 8px 0px 0px;
+    border-radius: 2px;
+    margin-right: 6px;
+    cursor: pointer;
+    line-height: 18px;
+    color: #66c0f4;
+}
+.menu_ico{
+    display: inline-block;
+    cursor: pointer;
+    line-height: 18px;
+    vertical-align: top;
+    padding: 1px 7px 0 6px;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
 }
 
-.steam-game-hide {
-  display: none;
-}
-
-.steam-game-show {
-  display: block;
-}
-
-.steam-game-title {
-  font-size: 18px;
-}
-
-.steam-game-title a {
-  line-height: 1;
-  padding: 5px;
-}
-
-.steam-game-title a:hover {
-  padding: 5px;
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  border: 1px solid rgba(123, 123, 123, .5);
-  -webkit-transition: all .3s;
-  -moz-transition: all .3s;
-  -o-transition: all .3s;
-  transition: all .3s;
-}
-
-.steam-game-link {
-  min-height: 50px;
-}
-
-@media (max-width:400px) {
-  .steam-game-picture {
-    padding-left: 5px;
-  }
-
-  .steam-game-info {
-    margin: 10px 0;
-    padding: 85px 0 0 5px;
-  }
-}
-
-.steam-game-picture img {
-  border: 2px solid #7b7b7b;
-  border-radius: 20px 7px;
-}
-
-.steam-game-button {
-  color: #00b8ff !important;
-  -webkit-transition: all .5s;
-  -moz-transition: all .5s;
-  -o-transition: all .5s;
-  transition: all .5s;
-  position: relative;
-}
-
-.steam-game-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  border: 1px solid rgba(123, 123, 123, .5);
-  -webkit-transition: all .3s;
-  -moz-transition: all .3s;
-  -o-transition: all .3s;
-  transition: all .3s;
-}
-
-.steam-game-button:hover::before {
-  opacity: 0;
-  -webkit-transform: scale(1.2, 1.2);
-  transform: scale(1.2, 1.2);
-}
-
-.steam-game-button::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0;
-  background-color: rgba(255, 255, 255, .25);
-  -webkit-transition: all .3s;
-  -moz-transition: all .3s;
-  -o-transition: all .3s;
-  transition: all .3s;
-  -webkit-transform: scale(.5, .5);
-  transform: scale(.5, .5);
-}
-
-.steam-game-button:hover::after {
-  opacity: 1;
-  -webkit-transform: scale(1, 1);
-  transform: scale(1, 1);
+@media screen and (max-width: 500px)
+{
+    .personal_name {
+        position: static;
+    }
+    .profile_header_badgeinfo
+    {
+        float: none;
+    }
+    .head_profile_summary{
+        float: none;
+    }
+    .status_info_header{
+        position: static;
+        
+    }
+    .profile_header{
+        padding-bottom: 12px;
+    }
+    .head_name_spcer
+    {
+        display: none;
+    }
+    .header_spacer{
+        display: none;
+    }
+    
 }
