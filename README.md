@@ -1,11 +1,15 @@
 # hexo-steam-games
+![https://img.shields.io/npm/v/hexo-steam?color=%09%23bf00ff](https://img.shields.io/npm/v/hexo-steam?color=%09%23bf00ff)
+![license](https://img.shields.io/github/license/slyli/hexo-steam?color=FF5531)
 
 
 ## 介绍
 
-**为Hexo添加Steam游戏库页面** [Demo](https://slyli.cn/steam/).
+**为Hexo添加Steam游戏库页面** 
 
-## 安装(暂未上传npm，不能直接安装)
+[Demo](https://slyli.cn/steam/).
+
+## 安装
 
 ```bash
 $ npm install hexo-steam --save
@@ -49,7 +53,3 @@ steam:
 ## 参考
  [hexo-steam-games](https://github.com/HCLonely/hexo-steam-games)
 
-
-## Lisense
-
-[MIT](https://github.com/slyli/hexo-steam/LICENSE)
