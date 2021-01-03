@@ -110,15 +110,14 @@ hexo.extend.console.register('t', 'test', function(args){
 //   GetUrl(profile_url,SaveProfile);
 //   var game_url =`https://steamcommunity.com/profiles/76561198423529474/games/?tab=all&xml=1`; 
 //   GetUrl(game_url,SaveGames);
-
-    var name = 'steam';	  
-
-    hexo.extend.generator.register(name, require('./lib/' + name + '-generator'));	  
-
-    var self = this;	
-    var publicDir = self.public_dir;	
+    let config = this.config;
+    console.log(config.steam)
 
     //Generate files	
+    var name = 'steam';	  
+    hexo.extend.generator.register(name, require('./lib/' + name + '-generator'));	  
+    var self = this;	
+    var publicDir = self.public_dir;	    
     self.load().then(function () {	
         if(!fs.existsSync(publicDir)){	
         fs.mkdirSync(publicDir);	

@@ -6,6 +6,11 @@
     text-decoration: none;
     cursor: pointer;
 }
+#article-container a:hover{
+    color: #ebebeb;
+    text-decoration: none;
+    cursor: pointer;
+}
 #article-container .button_controls a{
     color: #66c0f4;
 }
@@ -62,6 +67,7 @@
     left: 2px;
     width: 166px;
     height: 166px;
+    z-index: 10;
 
 }
 .player_avatar img{
@@ -75,11 +81,14 @@
     white-space: nowrap;
     font-size: 24px;
     line-height: 40px;
+    z-index: 10;
 
 }
 .profile_header_badgeinfo{
     float: right;
     width: 150px;
+    z-index: 10;
+    position: relative;
 }
 
 
