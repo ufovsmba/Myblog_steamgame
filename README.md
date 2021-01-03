@@ -41,12 +41,10 @@ steam:
 
 1. 使用`hexo t`命令更新steam游戏库数据，和生成页面！
 
-
-
 ## 示例
 
-![示例图片](https://github.com/slyli/hexo-steam/raw/master/example/exp1.png)
-![示例图片](https://github.com/slyli/hexo-steam/raw/master/example/exp2.png)
+![示例图片](https://github.com/SlyLi/hexo-steam/blob/main/example/exp1.png?raw=true)
+![示例图片](https://github.com/SlyLi/hexo-steam/blob/main/example/exp2.png?raw=true)
 
 ## 参考
  [hexo-steam-games](https://github.com/HCLonely/hexo-steam-games)
