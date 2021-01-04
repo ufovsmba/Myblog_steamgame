@@ -3,6 +3,11 @@ const path = require('path');
 const https =require('https');
 const cheerio = require('cheerio');
 var parser = require('fast-xml-parser');
+var log = require('hexo-log')({
+    debug: false,
+    silent: false
+  });
+
 
 const options = {
     timeout: 30 * 60 * 1000,
@@ -18,8 +23,8 @@ const options = {
   {
       https.get(url, options ,(res) => {
           var response = '';
-          console.log('statusCode:', res.statusCode);
-          console.log('headers:', res.headers);
+          log.debug('statusCode:', res.statusCode);
+          log.debug('headers:', res.headers);
       
           res.on('data', (d) => {
               // console.log(d.toString());
@@ -32,10 +37,8 @@ const options = {
           });
   
       }).on('error', (e) => {
-          console.error(e);
+          log.error(e);
       });
-  
-      console.log('123');
   
   }
   function SaveGames(response)
@@ -46,10 +49,9 @@ const options = {
           var json_data = JSON.stringify(jsonObj,null,4);
           fs.writeFile(path.join(__dirname, "/data/games.json"), json_data, err => {
               if (err) {
-                  console.log(err);("Failed to write data to games.json");
-                  console.log(err);
+                  log.error(err);          
               } else {
-                  console.log(json_data.length + "game data are saved.");
+                  log.info(json_data.length + "game data are saved.");
               }
           });
       
@@ -57,6 +59,7 @@ const options = {
       
   }
   
+
   function SaveProfile(response)
   {
     //   console.log(response)
@@ -70,48 +73,31 @@ const options = {
       var json_data = JSON.stringify(data,null,4);
       fs.writeFile(path.join(__dirname, "/data/profiles.json"), json_data, err => {
           if (err) {
-              console.log(err);("Failed to write data to profiles.json");
-              console.log(err);
+              log.error(err);
           } else {
-              console.log(json_data.length + "profiles data are saved.");
+              log.info(json_data.length + "profiles data are saved.");
           }
       });
   
   }
 
-function GentrateFile()
-{
-    var name = 'steam-games';	  
-
-    hexo.extend.generator.register(name, require('./lib/' + name + '-generator'));	  
-
-    var self = this;	
-    var publicDir = self.public_dir;	
-
-    //Generate files	
-    self.load().then(function () {	
-        if(!fs.existsSync(publicDir)){	
-        fs.mkdirSync(publicDir);	
-        }	
-
-        var id = name + "/index.html";	
-        console.log( self.route.get(id));	
-        self.route.get(id) && self.route.get(id)._data().then(function (contents) {	
-            //console.log(id);	
-            fs.writeFile(path.join(publicDir, id), contents);	
-            console.log("Generated: %s", id);	
-            });	
-        });
-}
+hexo.extend.generator.register('steam', function (locals) {
+    if (!this.config.steam || !this.config.steam.enable || !this.config.steam.auto_generate) {
+      return;
+    }
+    return require('./lib/steam-generator').call(this, locals);
+  });
 
 
-hexo.extend.console.register('t', 'test', function(args){
-//   var profile_url= `https://steamcommunity.com/profiles/76561198423529474/`;
-//   GetUrl(profile_url,SaveProfile);
-//   var game_url =`https://steamcommunity.com/profiles/76561198423529474/games/?tab=all&xml=1`; 
-//   GetUrl(game_url,SaveGames);
-    let config = this.config;
-    console.log(config.steam)
+hexo.extend.console.register('asteam', 'Get my steam games and Generate steam page', function(args){
+    if (!this.config.steam || !this.config.steam.enable ) {
+        return;
+      }
+    // get info
+    var profile_url= `https://steamcommunity.com/profiles/76561198423529474/`;
+    GetUrl(profile_url,SaveProfile);
+    var game_url =`https://steamcommunity.com/profiles/76561198423529474/games/?tab=all&xml=1`; 
+    GetUrl(game_url,SaveGames);
 
     //Generate files	
     var name = 'steam';	  
@@ -120,18 +106,13 @@ hexo.extend.console.register('t', 'test', function(args){
     var publicDir = self.public_dir;	    
     self.load().then(function () {	
         if(!fs.existsSync(publicDir)){	
-        fs.mkdirSync(publicDir);	
+            fs.mkdirSync(publicDir);	
         }	
-
         var id = name + "/index.html";	
-       // console.log( self.route.get(id));	
         self.route.get(id) && self.route.get(id)._data().then(function (contents) {	
-            //console.log(id);	
             fs.writeFile(path.join(publicDir, id), contents);	
-            console.log("Generated: %s", id);	
+            log.info("Generated: %s", id);	
             });	
-        });
+    });
   //Register route
-
-
 });
