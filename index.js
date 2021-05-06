@@ -75,7 +75,7 @@ const options = {
           if (err) {
               log.error(err);
           } else {
-              log.info(json_data.length + "profiles data are saved.");
+              log.info(json_data.length + "profiles are saved.");
           }
       });
   
@@ -94,9 +94,9 @@ hexo.extend.console.register('asteam', 'Get my steam games and Generate steam pa
         return;
       }
     // get info
-    var profile_url= `https://steamcommunity.com/profiles/76561198423529474/`;
+    var profile_url= `https://steamcommunity.com/profiles/` + this.config.steam.steamId + '/';
     GetUrl(profile_url,SaveProfile);
-    var game_url =`https://steamcommunity.com/profiles/76561198423529474/games/?tab=all&xml=1`; 
+    var game_url = `https://steamcommunity.com/profiles/` + this.config.steam.steamId + '/games/?tab=all&xml=1'; 
     GetUrl(game_url,SaveGames);
 
     //Generate files	
